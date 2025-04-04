@@ -1,0 +1,1121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tailwind with Custom CSS</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <!-- AOS CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+
+    <!-- Swiper CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
+
+    <!-- Tailwind CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Cấu hình biến màu trong Tailwind nếu muốn -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: 'var(--color-primary)',
+                        secondary: 'var(--color-secondary)',
+                    },
+                },
+            },
+        };
+    </script>
+
+    <!-- Link tới CSS riêng -->
+    <link rel="stylesheet" href="style.css" />
+</head>
+
+<body class="">
+    <header class="relative z-10">
+        <div class="absolute top-0 w-full">
+            <div class=" text-sm py-2 px-[42px] flex justify-between items-center text-white">
+                <div class="flex items-center space-x-6">
+                    <div class="flex items-center space-x-1">
+                        <i class="fa-regular fa-clock"></i>
+                        <span>Mon - Frd : 8:00 - 16:00</span>
+                    </div>
+                    <div class="flex items-center space-x-1">
+                        <i class="fa-regular fa-envelope"></i>
+                        <span>gurusservices@email.com</span>
+                    </div>
+                    <div class="flex items-center space-x-1">
+                        <i class="fa-solid fa-location-dot"></i>
+                        <span>28 Street, New York, USA</span>
+                    </div>
+                </div>
+                <div class="flex gap-4 text-xs text-white">
+                    <a href=" #" aria-label="Facebook" class="hover:text-blue-600"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" aria-label="Twitter" class="hover:text-blue-400"><i class="fab fa-twitter"></i></a>
+                    <a href="#" aria-label="Instagram" class="hover:text-pink-500"><i class="fab fa-instagram"></i></a>
+                    <a href="#" aria-label="LinkedIn" class="hover:text-blue-700"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#" aria-label="YouTube" class="hover:text-red-600"><i class="fab fa-youtube"></i></a>
+                    <a href="#" aria-label="TikTok" class="hover:text-black"><i class="fab fa-tiktok"></i></a>
+                </div>
+            </div>
+            <!-- Main navbar -->
+            <div class="text-white px-[42px] py-6 flex justify-between items-center border border-[#FFFFFF4D]">
+                <!-- Logo -->
+                <div class="flex items-center space-x-2">
+                    <div class="text-3xl">📄</div>
+                    <span class="text-2xl font-bold">Gurus</span>
+                </div>
+
+                <!-- Menu -->
+                <nav class="space-x-6 text-sm font-medium hidden md:flex">
+                    <a href="#" class="text-white border-b-2 border-white pb-1">Home</a>
+                    <a href="#" class="hover:text-gray-300">Pages</a>
+                    <a href="#" class="hover:text-gray-300">Services</a>
+                    <a href="#" class="hover:text-gray-300">Portfolio</a>
+                    <a href="#" class="hover:text-gray-300">Blog</a>
+                    <a href="#" class="hover:text-gray-300">Shop</a>
+                </nav>
+
+                <!-- Contact -->
+                <div class="flex items-center space-x-10">
+                    <div class="bg-white/10 rounded-full py-3 px-4 ">
+                        <i class="fa-solid fa-phone "></i>
+                    </div>
+                    <div class="text-sm">
+                        <div class="text-gray-400">Have Any Questions?</div>
+                        <div class="font-bold text-white">+020.098.456</div>
+                    </div>
+                    <div id="menuBtn" class="text-white text-xl cursor-pointer">☰</div>
+                    <div id="drawer"
+                        class="fixed top-0 right-0 w-80 max-w-full h-full bg-white text-black shadow-xl transform translate-x-full transition-transform duration-300 z-50">
+                        <div class="p-6 relative h-full overflow-y-auto">
+                            <!-- Close button -->
+                            <button id="closeDrawer" class="absolute top-4 right-4 text-2xl text-black">
+                                &times;
+                            </button>
+
+                            <!-- Logo -->
+                            <div class="flex items-center space-x-2 mt-6">
+                                <i class="fa-regular fa-file text-4xl text-gray-500"></i>
+                                <span class="text-2xl font-bold">Gurus</span>
+                            </div>
+
+                            <!-- Slogan -->
+                            <p class="text-sm text-gray-500 mt-2 mb-6">Gurus – Business Consulting WordPress Theme</p>
+
+                            <!-- Contact Info -->
+                            <h2 class="font-semibold text-lg mt-6 mb-4">Contact Info</h2>
+                            <div class="space-y-4 text-sm">
+                                <div class="flex items-center space-x-3">
+                                    <i class="fa-regular fa-clock text-gray-600"></i>
+                                    <span>Mon - Frd : 8:00 -16:00</span>
+                                </div>
+                                <div class="flex items-center space-x-3">
+                                    <i class="fa-solid fa-phone text-gray-600"></i>
+                                    <span>+020.098.456 11</span>
+                                </div>
+                                <div class="flex items-center space-x-3">
+                                    <i class="fa-regular fa-envelope text-gray-600"></i>
+                                    <span>gurusservices@email.com</span>
+                                </div>
+                            </div>
+
+                            <!-- Office Address -->
+                            <h2 class="font-semibold text-lg mt-8 mb-4">Office Address</h2>
+                            <div class="flex items-start space-x-3 text-sm">
+                                <i class="fa-regular fa-building text-gray-600 mt-1"></i>
+                                <span>28 Valencia Street, New York<br>United States of America</span>
+                            </div>
+
+                            <!-- Social Icons -->
+                            <div class="flex justify-between mt-10 space-x-4">
+                                <a href="#"
+                                    class="w-10 h-10 bg-black text-white rounded-full flex items-center justify-center hover:bg-gray-800">
+                                    <i class="fab fa-facebook-f"></i>
+                                </a>
+                                <a href="#"
+                                    class="w-10 h-10 bg-black text-white rounded-full flex items-center justify-center hover:bg-gray-800">
+                                    <i class="fab fa-instagram"></i>
+                                </a>
+                                <a href="#"
+                                    class="w-10 h-10 bg-black text-white rounded-full flex items-center justify-center hover:bg-gray-800">
+                                    <i class="fab fa-twitter"></i>
+                                </a>
+                                <a href="#"
+                                    class="w-10 h-10 bg-black text-white rounded-full flex items-center justify-center hover:bg-gray-800">
+                                    <i class="fab fa-linkedin-in"></i>
+                                </a>
+                                <a href="#"
+                                    class="w-10 h-10 bg-black text-white rounded-full flex items-center justify-center hover:bg-gray-800">
+                                    <i class="fab fa-skype"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Overlay -->
+                    <div id="overlay" class="fixed inset-0 bg-black bg-opacity-50 hidden z-40"></div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section class="relative w-full h-screen overflow-hidden">
+        <div class="swiper hero-swiper relative">
+            <div class="swiper-wrapper">
+
+                <!-- Slide 1 -->
+                <div class="swiper-slide relative w-full h-screen">
+                    <img src="https://demo.bravisthemes.com/gurus/wp-content/uploads/2024/04/slide-5.jpg" alt="Slide 1"
+                        class="w-full h-full object-cover absolute inset-0 z-0" />
+                    <div class="absolute inset-0 bg-black/40 z-10"></div>
+
+                    <!-- Caption -->
+                    <div class="relative custom-container z-20 flex items-center justify-center h-full text-white px-4">
+                        <div class="w-full">
+                            <h2 class="text-4xl md:text-6xl font-bold leading-tight mb-4">
+                                Build the Future with <span class="text-[#47d7ac]">Strategic Vision</span>
+                            </h2>
+                            <p class="text-lg md:text-xl font-light mb-6">
+                                We provide consultancy & business analysis to help brands grow sustainably and smartly.
+                            </p>
+                            <a href="#"
+                                class="inline-block px-6 py-3 bg-[#47d7ac] text-black font-semibold rounded-full hover:bg-white transition">
+                                Get Started
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Slide 2 -->
+                <div class="swiper-slide relative w-full h-screen">
+                    <img src="https://demo.bravisthemes.com/gurus/wp-content/uploads/2024/04/slide-4.jpg" alt="Slide 2"
+                        class="w-full h-full object-cover absolute inset-0 z-0" />
+                    <div class="absolute inset-0 bg-black/50 z-10"></div>
+
+                    <!-- Caption -->
+                    <div class="relative z-20 flex items-center justify-center h-full text-center text-white px-4">
+                        <div class="max-w-3xl mx-auto animate__animated animate__fadeInUp">
+                            <h2 class="text-4xl md:text-6xl font-bold leading-tight mb-4">
+                                Achieve More with <span class="text-[#47d7ac]">Expert Consulting</span>
+                            </h2>
+                            <p class="text-lg md:text-xl font-light mb-6">
+                                Trusted by leading brands for business growth and digital transformation.
+                            </p>
+                            <a href="#"
+                                class="inline-block px-6 py-3 bg-[#47d7ac] text-black font-semibold rounded-full hover:bg-white transition">
+                                Discover More
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <!-- Pagination -->
+            <div class="swiper-pagination absolute bottom-6 left-1/2 transform -translate-x-1/2 z-30"></div>
+        </div>
+    </section>
+    <section class="py-20 bg-white text-[#1a2d30]">
+        <div class="custom-container mx-auto px-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 pt-12">
+
+            <!-- Box 1 -->
+            <div class="flex flex-col justify-between  pr-6">
+                <div>
+                    <img src="https://demo.bravisthemes.com/gurus/wp-content/uploads/2024/04/service-2.svg"
+                        alt="Project Analysis" class="w-12 h-12 mb-6">
+                    <h3 class="text-xl font-semibold mb-2">Project Analysis</h3>
+                    <p class="text-sm text-gray-600 leading-relaxed">
+                        Research & development in project analysis sector of a company represents its strength on the
+                        strategy making & market research.
+                    </p>
+                </div>
+                <button
+                    class="mt-6 w-9 h-9 rounded-full border border-gray-700 flex items-center justify-center hover:bg-gray-900 hover:text-white transition">
+                    <i class="fas fa-arrow-up-right-from-square text-xs text-center"></i>
+                </button>
+            </div>
+
+            <!-- Box 2 -->
+            <div class="flex flex-col justify-between  pr-6">
+                <div>
+                    <img src="https://demo.bravisthemes.com/gurus/wp-content/uploads/2024/04/service-2.svg"
+                        alt="Strategy Development" class="w-12 h-12 mb-6">
+                    <h3 class="text-xl font-semibold mb-2">Strategy Development</h3>
+                    <p class="text-sm text-gray-600 leading-relaxed">
+                        Gurus offers versatile accounting analysis for both big and small business entities. Many big
+                        firm has collaborated with us in recent years.
+                    </p>
+                </div>
+                <button
+                    class="mt-6 w-9 h-9 rounded-full border border-gray-700 flex items-center justify-center hover:bg-gray-900 hover:text-white transition">
+                    <i class="fas fa-arrow-up-right-from-square text-xs text-center"></i>
+                </button>
+            </div>
+
+            <!-- Box 3 -->
+            <div class="flex flex-col justify-between">
+                <div>
+                    <img src="https://demo.bravisthemes.com/gurus/wp-content/uploads/2024/04/service-2.svg"
+                        alt="Business Intelligence" class="w-12 h-12 mb-6">
+                    <h3 class="text-xl font-semibold mb-2">Business Intelligence</h3>
+                    <p class="text-sm text-gray-600 leading-relaxed">
+                        We help a business to generate product ideas using our business intelligence. To compete with
+                        the competitors, you need them.
+                    </p>
+                </div>
+                <button
+                    class="mt-6 w-9 h-9 leading-9 rounded-full border border-gray-700 flex items-center justify-center hover:bg-gray-900 hover:text-white transition">
+                    <i class="fas fa-arrow-up-right-from-square text-xs text-center"></i>
+                </button>
+            </div>
+
+        </div>
+    </section>
+    <section class="py-20 bg-white text-[#1a2d30]">
+        <div class="custom-container mx-auto px-4 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+
+            <!-- LEFT CONTENT -->
+            <div data-aos="fade-right">
+                <span class="uppercase text-sm tracking-widest font-semibold text-[#97bcc5] block mb-4">We are
+                    Gurus</span>
+                <h2 class="text-4xl font-medium leading-snug mb-6">
+                    We are building great future together,
+                    <em class="italic font-semibold">Be with us</em>
+                </h2>
+                <p class="text-gray-600 text-base mb-8 max-w-xl">
+                    Gurus offers full range of consultancy and training for data consultation strategic ways for
+                    business management.
+                </p>
+
+                <!-- Feature list -->
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-3 mb-10 text-[15px]">
+                    <ul class="space-y-2">
+                        <li>✨ Growth Method Analysis</li>
+                        <li>✨ Project Management consultation</li>
+                        <li>✨ Team Building Leadership</li>
+                        <li>✨ Assessment Report Analysis</li>
+                    </ul>
+                    <ul class="space-y-2">
+                        <li>✨ Growth Method Analysis</li>
+                        <li>✨ Business Management</li>
+                        <li>✨ Team Building Leadership</li>
+                        <li>✨ Assessment Report Analysis</li>
+                    </ul>
+                </div>
+
+                <!-- Button -->
+                <a href="#"
+                    class="inline-flex items-center justify-center px-6 py-3 rounded-full border border-gray-400 hover:bg-[#1a2d30] hover:text-white text-sm transition">
+                    View More&nbsp;<i class="fas fa-arrow-up-right-from-square ml-2 text-xs"></i>
+                </a>
+            </div>
+
+            <!-- RIGHT IMAGES -->
+            <div class="relative grid grid-cols-2 gap-4 bg-center bg-cover "
+                style="background-image: url(https://demo.bravisthemes.com/gurus/wp-content/uploads/2024/04/bg-about-1-776x591.png);"
+                data-aos="fade-left">
+                <!-- Big Image -->
+                <div class="col-span-2 lg:col-span-1 rounded-xl overflow-hidden">
+                    <img src="https://demo.bravisthemes.com/gurus/wp-content/uploads/2024/04/about-3-400x341.jpg"
+                        alt="Building" class="w-full h-full object-cover rounded-xl shadow-xl" />
+                </div>
+
+                <!-- Small Images floating -->
+                <div
+                    class="absolute top-0 right-0 translate-x-1/4 -translate-y-1/4 w-[180px] hidden lg:block rounded-xl overflow-hidden shadow-lg">
+                    <img src="https://demo.bravisthemes.com/gurus/wp-content/uploads/2024/04/about-3-400x341.jpg"
+                        alt="Man" class="w-full h-full object-cover rounded-xl" />
+                </div>
+
+                <div
+                    class="absolute bottom-0 left-1/2 translate-x-1/3 translate-y-1/4 w-[220px] hidden lg:block rounded-xl overflow-hidden shadow-lg">
+                    <img src="https://demo.bravisthemes.com/gurus/wp-content/uploads/2024/04/about-3-400x341.jpg"
+                        alt="Handshake" class="w-full h-full object-cover rounded-xl" />
+                </div>
+            </div>
+
+        </div>
+    </section>
+    <section class="bg-[#1a2d30] py-20 text-white">
+        <div
+            class="custom-container mx-auto grid grid-cols-1 lg:grid-cols-2 gap-8 items-center bg-[url('https://demo.bravisthemes.com/gurus/wp-content/uploads/2024/04/bg-we-choose-us-1.jpg')] bg-cover bg-center">
+
+            <!-- Left image -->
+            <div data-aos="fade-right">
+                <img src="https://demo.bravisthemes.com/gurus/wp-content/uploads/2024/04/we-choose-us-1.jpg"
+                    alt="Business Team" class=" w-full max-w-xl ">
+            </div>
+
+            <!-- Right content -->
+            <div class=" rounded-lg p-8 lg:p-12 text-white" data-aos="fade-left">
+                <span class="uppercase text-xs tracking-wider font-semibold text-white/70 mb-3 inline-block">Why choose
+                    us</span>
+                <h2 class="text-3xl md:text-4xl font-semibold mb-4 leading-snug">
+                    Creating successful venture<br />
+                    is always <em class="italic">the priority</em>
+                </h2>
+                <p class="text-white/80 text-sm mb-6 leading-relaxed">
+                    In every business year of this company we have created successful ventures with amazing companies
+                    from all around.
+                    We tried to prioritize our collaborators through being sustainable together.
+                </p>
+                <a href="#"
+                    class="inline-block px-6 py-2 border border-white rounded-full text-sm hover:bg-white hover:text-[#1a2d30] transition-all">
+                    View More →
+                </a>
+            </div>
+        </div>
+
+        <!-- Services Box -->
+        <section class="max-w-[1200px] -mt-[60px] mx-auto relative">
+            <div class="flex items-end justify-center">
+                <div class="w-[30%] flex items-center ">
+                    <div class=" ">
+                        <button
+                            class="swiper-button-prev-custom w-10 h-10 rounded-full border border-white text-white flex items-center justify-center hover:bg-white/10 transition">
+                            <i class="fas fa-arrow-left"></i>
+                        </button>
+                    </div>
+                    <div class=" ">
+                        <button
+                            class="swiper-button-next-custom w-10 h-10 rounded-full border border-white text-white flex items-center justify-center hover:bg-white/10 transition">
+                            <i class="fas fa-arrow-right"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="swiper serviceSwiper w-[70%]">
+                    <div class="swiper-wrapper ">
+
+                        <!-- Slide 1 -->
+                        <div class="swiper-slide">
+                            <div
+                                class="bg-gradient-to-br from-[#2d3e41]/60 to-[#1b2c2f]/80 border border-white/10 rounded-xl p-6 backdrop-blur-sm transition">
+                                <div class="mb-4 text-white text-2xl">🌀</div>
+                                <h3 class="text-lg font-semibold mb-1">Business Expertise</h3>
+                                <p class="text-sm text-white/70">Best business professionals do exit in our operation
+                                    team
+                                </p>
+                                <button
+                                    class=" w-10 h-10 mt-3 rounded-full border border-white text-white flex items-center justify-center hover:bg-white/10 transition">
+                                    <i class="fas fa-arrow-right"></i>
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Slide 2 -->
+                        <div class="swiper-slide">
+                            <div
+                                class="bg-gradient-to-br from-[#2d3e41]/60 to-[#1b2c2f]/80 border border-white/10 rounded-xl p-6 backdrop-blur-sm transition">
+                                <div class="mb-4 text-white text-2xl">🌐</div>
+                                <h3 class="text-lg font-semibold mb-1">Global Expansion</h3>
+                                <p class="text-sm text-white/70">We are successfully operating in 70 countries from the
+                                    globe</p>
+                                <button
+                                    class=" w-10 h-10 mt-3 rounded-full border border-white text-white flex items-center justify-center hover:bg-white/10 transition">
+                                    <i class="fas fa-arrow-right"></i>
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Slide 3 -->
+                        <div class="swiper-slide">
+                            <div
+                                class="bg-gradient-to-br from-[#2d3e41]/60 to-[#1b2c2f]/80 border border-white/10 rounded-xl p-6 backdrop-blur-sm transition">
+                                <div class="mb-4 text-white text-2xl">💎</div>
+                                <h3 class="text-lg font-semibold mb-1">Versatile Operation</h3>
+                                <p class="text-sm text-white/70">Business idea invention to the last stage
+                                    implementation
+                                </p>
+                                <button
+                                    class=" w-10 h-10 mt-3 rounded-full border border-white text-white flex items-center justify-center hover:bg-white/10 transition">
+                                    <i class="fas fa-arrow-right"></i>
+                                </button>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+        </section>
+    </section>
+    <section class="bg-[#e6f5f5] py-14">
+        <div
+            class="container mx-auto px-4 grid grid-cols-2 md:grid-cols-4 gap-6 text-center text-[#1b2f32] font-semibold text-3xl">
+
+            <!-- Counter 1 -->
+            <div>
+                <div id="counter1" class="text-4xl font-bold mb-2">0</div>
+                <p class="text-sm uppercase font-medium">Session Completed</p>
+            </div>
+
+            <!-- Counter 2 -->
+            <div>
+                <div id="counter2" class="text-4xl font-bold mb-2">0</div>
+                <p class="text-sm uppercase font-medium">Country Operation</p>
+            </div>
+
+            <!-- Counter 3 -->
+            <div>
+                <div id="counter3" class="text-4xl font-bold mb-2">0</div>
+                <p class="text-sm uppercase font-medium">Expert Consultants</p>
+            </div>
+
+            <!-- Counter 4 -->
+            <div>
+                <div id="counter4" class="text-4xl font-bold mb-2">0</div>
+                <p class="text-sm uppercase font-medium">Country Operation</p>
+            </div>
+
+        </div>
+    </section>
+    <section class="bg-white py-20">
+        <div class="custom-container mx-auto px-4 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+
+            <!-- Text -->
+            <div data-aos="fade-up">
+                <span class="uppercase text-sm tracking-widest font-semibold text-[#476069] block mb-2">Company
+                    Skills</span>
+                <h2 class="text-3xl md:text-4xl font-medium text-gray-800">
+                    We always evaluate our skills<br />
+                    through <em class="italic">our performance</em>
+                </h2>
+            </div>
+
+            <!-- Circles -->
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-10 text-center" data-aos="fade-up" data-aos-delay="200">
+
+                <!-- Item 1 -->
+                <div>
+                    <div id="circle1" class="w-[120px] h-[120px] mx-auto mb-4"></div>
+                    <div class="text-xl font-semibold" id="count1">0%</div>
+                    <p class="mt-1 text-sm text-gray-600">Business<br />Development</p>
+                </div>
+
+                <!-- Item 2 -->
+                <div>
+                    <div id="circle2" class="w-[120px] h-[120px] mx-auto mb-4"></div>
+                    <div class="text-xl font-semibold" id="count2">0%</div>
+                    <p class="mt-1 text-sm text-gray-600">Idea<br />Innovation</p>
+                </div>
+
+                <!-- Item 3 -->
+                <div>
+                    <div id="circle3" class="w-[120px] h-[120px] mx-auto mb-4"></div>
+                    <div class="text-xl font-semibold" id="count3">0%</div>
+                    <p class="mt-1 text-sm text-gray-600">Investment<br />Analysis</p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+    <section class="bg-[#e6f5f5] py-20 text-center">
+        <div class="custom-container mx-auto px-4">
+
+            <!-- Section Header -->
+            <div class="mb-12" data-aos="fade-up">
+                <span class="uppercase tracking-widest text-sm text-[#4a6b72] font-semibold block mb-2">
+                    Our Team Members
+                </span>
+                <h2 class="text-4xl font-medium">
+                    Meet our <span class="italic font-semibold">team members</span>
+                </h2>
+            </div>
+
+            <!-- Team Grid -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+
+                <!-- Member -->
+                <div class="group relative overflow-hidden pt-6 sm:pt-8 lg:pt-10" data-aos="fade-up"
+                    data-aos-delay="100">
+                    <img src="https://demo.bravisthemes.com/gurus/wp-content/uploads/2024/03/member-3.jpg"
+                        alt="Arnold Maxwell" class="w-full h-auto object-cover rounded-md">
+                    <div
+                        class="absolute bottom-4 left-1/2 transform -translate-x-1/2 bg-white px-4 py-3 rounded shadow text-center w-[85%]">
+                        <h4 class="text-gray-900 text-lg md:text-xl font-semibold">Arnold Maxwell</h4>
+                        <p class="text-sm text-gray-500">Chief Financial Officer</p>
+                    </div>
+                </div>
+
+                <!-- Member -->
+                <div class="group relative overflow-hidden pt-6 sm:pt-8 lg:pt-10" data-aos="fade-up"
+                    data-aos-delay="200">
+                    <img src="https://demo.bravisthemes.com/gurus/wp-content/uploads/2024/03/member-3.jpg"
+                        alt="Ashley Graham" class="w-full h-auto object-cover rounded-md">
+                    <div
+                        class="absolute bottom-4 left-1/2 transform -translate-x-1/2 bg-white px-4 py-3 rounded shadow text-center w-[85%]">
+                        <h4 class="text-gray-900 text-lg md:text-xl font-semibold">Ashley Graham</h4>
+                        <p class="text-sm text-gray-500">Chief Business Analyst</p>
+                    </div>
+                </div>
+
+                <!-- Member -->
+                <div class="group relative overflow-hidden pt-6 sm:pt-8 lg:pt-10" data-aos="fade-up"
+                    data-aos-delay="300">
+                    <img src="https://demo.bravisthemes.com/gurus/wp-content/uploads/2024/03/member-3.jpg"
+                        alt="Madison Loren" class="w-full h-auto object-cover rounded-md">
+                    <div
+                        class="absolute bottom-4 left-1/2 transform -translate-x-1/2 bg-white px-4 py-3 rounded shadow text-center w-[85%]">
+                        <h4 class="text-gray-900 text-lg md:text-xl font-semibold">Madison Loren</h4>
+                        <p class="text-sm text-gray-500">Chief Executive Officer</p>
+                    </div>
+                </div>
+
+                <!-- Member -->
+                <div class="group relative overflow-hidden pt-6 sm:pt-8 lg:pt-10" data-aos="fade-up"
+                    data-aos-delay="400">
+                    <img src="https://demo.bravisthemes.com/gurus/wp-content/uploads/2024/03/member-3.jpg"
+                        alt="Jessica Rose" class="w-full h-auto object-cover rounded-md">
+                    <div
+                        class="absolute bottom-4 left-1/2 transform -translate-x-1/2 bg-white px-4 py-3 rounded shadow text-center w-[85%]">
+                        <h4 class="text-gray-900 text-lg md:text-xl font-semibold">Jessica Rose</h4>
+                        <p class="text-sm text-gray-500">Head Of Operation</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+    <section class="bg-[#0f262f] text-white py-20 bg-cover bg-no-repeat bg-center relative"
+        style="background-image: url(https://demo.bravisthemes.com/gurus/wp-content/uploads/2024/04/bg-tesimonial-1.jpg);">
+        <div class="overlay-footer "></div>
+        <div
+            class="relative z-10 custom-container mx-auto px-4 flex flex-col lg:grid lg:grid-cols-3 gap-10 items-center">
+
+            <!-- Left Text -->
+            <div class="text-center lg:text-left" data-aos="fade-up" data-aos-delay="100">
+                <p class="uppercase text-sm text-[#9BB0BC] mb-3">Clients Testimonial</p>
+                <h2 class="text-[48px] lg:text-[64px] text-primary font-bold leading-none mb-2">25k+</h2>
+                <p class="uppercase tracking-wide mb-6 text-[#9BB0BC] text-[18px] lg:text-[25px]">Customers are served
+                </p>
+
+                <p class="mb-8 font-light leading-relaxed text-[15px] max-w-md mx-auto lg:mx-0">
+                    <strong>Words By our Amazing <span class="italic">Clients</span></strong><br />
+                    Gurus offers full range of consultancy and training<br />
+                    for data consultation strategic
+                </p>
+
+                <div class="flex justify-center lg:justify-start gap-4">
+                    <div class="swiper-button-prev-custom w-12 h-10 lg:w-20 rounded-full border border-white flex items-center justify-center hover:bg-white/10 transition"
+                        data-aos="fade-right" data-aos-delay="400">
+                        <i class="fas fa-arrow-left"></i>
+                    </div>
+                    <div class="swiper-button-next-custom w-12 h-10 lg:w-20 rounded-full border border-white flex items-center justify-center hover:bg-white/10 transition"
+                        data-aos="fade-left" data-aos-delay="400">
+                        <i class="fas fa-arrow-right"></i>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Swiper -->
+            <div class="lg:col-span-2 w-full" data-aos="zoom-in" data-aos-delay="200">
+                <div class="swiper testimonial-slider">
+                    <div class="swiper-wrapper">
+
+                        <!-- Slide 1 -->
+                        <div class="swiper-slide bg-[#1b3842] p-6 md:p-10 rounded-xl">
+                            <p class="text-base md:text-lg leading-relaxed mb-6">
+                                "Gurus’s digital marketing strategies have helped us reach new customers and expand our
+                                business.
+                                They are results-driven and always go the extra mile to deliver outstanding results."
+                            </p>
+                            <hr class="border-[#3d545c] mb-4" />
+                            <h4 class="font-bold text-white">John Smith</h4>
+                            <p class="text-sm text-[#9BB0BC]">CEO of Zendove Corp</p>
+                        </div>
+
+                        <!-- Slide 2 -->
+                        <div class="swiper-slide bg-[#1b3842] p-6 md:p-10 rounded-xl">
+                            <p class="text-base md:text-lg leading-relaxed mb-6">
+                                "Gurus’s digital marketing strategies have helped us reach new customers and expand our
+                                business.
+                                They are results-driven and always go the extra mile to deliver outstanding results."
+                            </p>
+                            <hr class="border-[#3d545c] mb-4" />
+                            <h4 class="font-bold text-white">Melisa Scarlet</h4>
+                            <p class="text-sm text-[#9BB0BC]">CEO of Asana Pro Ltd.</p>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="bg-[#f3fafa] py-10" data-aos="fade-up">
+        <div class="swiper partner-slider">
+            <div class="swiper-wrapper items-center">
+                <!-- Logo Slide -->
+                <div
+                    class="swiper-slide flex justify-center items-center border border-gray-100 py-6 px-4 transition-transform duration-300 hover:scale-125">
+                    <img src="https://demo.bravisthemes.com/gurus/wp-content/uploads/2024/04/partner-6.png"
+                        class="h-10 transition-transform duration-300" />
+                </div>
+                <div
+                    class="swiper-slide flex justify-center items-center border border-gray-100 py-6 px-4 transition-transform duration-300 hover:scale-125">
+                    <img src="https://demo.bravisthemes.com/gurus/wp-content/uploads/2024/04/partner-6.png"
+                        class="h-10 transition-transform duration-300" />
+                </div>
+                <div
+                    class="swiper-slide flex justify-center items-center border border-gray-100 py-6 px-4 transition-transform duration-300 hover:scale-125">
+                    <img src="https://demo.bravisthemes.com/gurus/wp-content/uploads/2024/04/partner-6.png"
+                        class="h-10 transition-transform duration-300" />
+                </div>
+                <div
+                    class="swiper-slide flex justify-center items-center border border-gray-100 py-6 px-4 transition-transform duration-300 hover:scale-125">
+                    <img src="https://demo.bravisthemes.com/gurus/wp-content/uploads/2024/04/partner-6.png"
+                        class="h-10 transition-transform duration-300" />
+                </div>
+                <div
+                    class="swiper-slide flex justify-center items-center border border-gray-100 py-6 px-4 transition-transform duration-300 hover:scale-125">
+                    <img src="https://demo.bravisthemes.com/gurus/wp-content/uploads/2024/04/partner-6.png"
+                        class="h-10 transition-transform duration-300" />
+                </div>
+                <div
+                    class="swiper-slide flex justify-center items-center border border-gray-100 py-6 px-4 transition-transform duration-300 hover:scale-125">
+                    <img src="https://demo.bravisthemes.com/gurus/wp-content/uploads/2024/04/partner-6.png"
+                        class="h-10 transition-transform duration-300" />
+                </div>
+                <div
+                    class="swiper-slide flex justify-center items-center border border-gray-100 py-6 px-4 transition-transform duration-300 hover:scale-125">
+                    <img src="https://demo.bravisthemes.com/gurus/wp-content/uploads/2024/04/partner-6.png"
+                        class="h-10 transition-transform duration-300" />
+                </div>
+                <div
+                    class="swiper-slide flex justify-center items-center border border-gray-100 py-6 px-4 transition-transform duration-300 hover:scale-125">
+                    <img src="https://demo.bravisthemes.com/gurus/wp-content/uploads/2024/04/partner-6.png"
+                        class="h-10 transition-transform duration-300" />
+                </div>
+            </div>
+        </div>
+    </section>
+    <section>
+        <div class="custom-container mx-auto px-4">
+            <div class="mb-[54px]" data-aos="fade-down">
+                <div class="text-center">
+                    <span class="bg-primary p-1 text-white">Latest News</span>
+                </div>
+                <h2 class="text-center text-[24px] sm:text-[30px] md:text-[36px] lg:text-[42px]">
+                    Read our <span class="font-semibold">Latest News</span>
+                </h2>
+            </div>
+
+            <div>
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <!-- Tin 1 -->
+                    <div class="rounded-[20px] overflow-hidden border border-[#E5E5E5]" data-aos="fade-up"
+                        data-aos-delay="0">
+                        <div class="h-[250px] sm:h-[300px] lg:h-[350px] bg-cover bg-no-repeat bg-center"
+                            style="background-image: url(https://demo.bravisthemes.com/gurus/wp-content/uploads/2024/07/post2-min-558x400.webp);">
+                        </div>
+                        <div
+                            class="pt-[30px] sm:pt-[42px] pr-[24px] sm:pr-[42px] pb-[40px] sm:pb-[57px] pl-[24px] sm:pl-[50px]">
+                            <div class="post-date-before mb-2">July 9, 2024</div>
+                            <h2
+                                class="text-[22px] sm:text-[24px] md:text-[26px] lg:text-[28px] font-semibold pxl-hover-line">
+                                <a href="#">Consultation’s Effect on New Business Ventures</a>
+                            </h2>
+                            <p class="mt-[20px] sm:mt-[26px] text-sm sm:text-base">
+                                As business expert I have discovered the need of cloud computing in every step
+                            </p>
+                            <div class="mt-5">
+                                <button
+                                    class="px-[15px] py-[10px] rounded-full bg-[#223035] text-white text-sm sm:text-base">
+                                    View More <i class="ml-2 fas fa-arrow-right"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Tin 2 -->
+                    <div class="rounded-[20px] overflow-hidden border border-[#E5E5E5]" data-aos="fade-up"
+                        data-aos-delay="100">
+                        <div class="h-[250px] sm:h-[300px] lg:h-[350px] bg-cover bg-no-repeat bg-center"
+                            style="background-image: url(https://demo.bravisthemes.com/gurus/wp-content/uploads/2024/07/post2-min-558x400.webp);">
+                        </div>
+                        <div
+                            class="pt-[30px] sm:pt-[42px] pr-[24px] sm:pr-[42px] pb-[40px] sm:pb-[57px] pl-[24px] sm:pl-[50px]">
+                            <div class="post-date-before mb-2">July 9, 2024</div>
+                            <h2
+                                class="text-[22px] sm:text-[24px] md:text-[26px] lg:text-[28px] font-semibold pxl-hover-line">
+                                <a href="#">Consultation’s Effect on New Business Ventures</a>
+                            </h2>
+                            <p class="mt-[20px] sm:mt-[26px] text-sm sm:text-base">
+                                As business expert I have discovered the need of cloud computing in every step
+                            </p>
+                            <div class="mt-5">
+                                <button
+                                    class="px-[15px] py-[10px] rounded-full bg-[#223035] text-white text-sm sm:text-base">
+                                    View More <i class="ml-2 fas fa-arrow-right"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Tin 3 -->
+                    <div class="rounded-[20px] overflow-hidden border border-[#E5E5E5]" data-aos="fade-up"
+                        data-aos-delay="200">
+                        <div class="h-[250px] sm:h-[300px] lg:h-[350px] bg-cover bg-no-repeat bg-center"
+                            style="background-image: url(https://demo.bravisthemes.com/gurus/wp-content/uploads/2024/07/post2-min-558x400.webp);">
+                        </div>
+                        <div
+                            class="pt-[30px] sm:pt-[42px] pr-[24px] sm:pr-[42px] pb-[40px] sm:pb-[57px] pl-[24px] sm:pl-[50px]">
+                            <div class="post-date-before mb-2">July 9, 2024</div>
+                            <h2
+                                class="text-[22px] sm:text-[24px] md:text-[26px] lg:text-[28px] font-semibold pxl-hover-line">
+                                <a href="#">Consultation’s Effect on New Business Ventures</a>
+                            </h2>
+                            <p class="mt-[20px] sm:mt-[26px] text-sm sm:text-base">
+                                As business expert I have discovered the need of cloud computing in every step
+                            </p>
+                            <div class="mt-5">
+                                <button
+                                    class="px-[15px] py-[10px] rounded-full bg-[#223035] text-white text-sm sm:text-base">
+                                    View More <i class="ml-2 fas fa-arrow-right"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+    <section>
+        <div class="text-center py-[60px] sm:py-[80px] md:py-[100px] lg:py-[120px] px-4 bg-center bg-cover bg-no-repeat"
+            style="background-image: url(https://demo.bravisthemes.com/gurus/wp-content/uploads/2024/04/bg-newsletter-gray.png);">
+            <div class="max-w-4xl mx-auto">
+                <!-- icons -->
+                <div class="mb-6" data-aos="fade-down">
+                    <div class="flex justify-center gap-4 text-2xl text-primary">
+                        <i class="text-3xl fas fa-phone"></i>
+                    </div>
+                </div>
+
+                <!-- heading -->
+                <h2 class="text-[24px] sm:text-[30px] md:text-[36px] lg:text-[42px] text-black leading-snug mb-6"
+                    data-aos="fade-up" data-aos-delay="100">
+                    Subscribe & get 20% off on your<br class="hidden sm:block" />
+                    first project, <span class="font-semibold">Be with us</span>
+                </h2>
+
+                <!-- form -->
+                <div class="form border-b relative mt-6 lg:mt-[79px] max-w-[742px] mx-auto" data-aos="zoom-in-up"
+                    data-aos-delay="200">
+                    <input type="text"
+                        class="w-full text-black border-none outline-none bg-transparent pt-[10px] pb-[17px] text-base sm:text-lg"
+                        placeholder="Your Email" />
+                    <button
+                        class="absolute right-0 top-0 px-[15px] py-[10px] rounded-full bg-[#223035] text-white text-sm sm:text-base">
+                        Subscribe <i class="ml-2 fas fa-arrow-right"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+    <footer>
+        <div class="w-full text-white overflow-hidden">
+            <div>
+                <section>
+                    <div class="grid grid-cols-1 lg:grid-cols-3">
+                        <!-- Cột trái -->
+                        <div class="bg-[#223035] pt-10 pr-6 pb-8 pl-6 lg:pt-[141px] lg:pr-[72px] lg:pb-[63px] lg:pl-[79px]"
+                            data-aos="fade-right">
+                            <h2 class="text-2xl font-bold mb-[35px]">
+                                <a href="#">
+                                    <img class="max-h-[40px]"
+                                        src="https://demo.bravisthemes.com/gurus/wp-content/uploads/2024/02/logo-light-1.png" />
+                                </a>
+                            </h2>
+                            <p class="text-[18px] mb-[50px]">Contact team Gurus and collaborate with us for making your
+                                dream business</p>
+                            <div class="pb-[30px]">
+                                <h4 class="text-[20px] font-[500] leading-[1.5] mb-[16px] text-primary">Contact us</h4>
+                                <p><i class="fas fa-envelope mr-2"></i> gurusservices@email.com</p>
+                                <p><i class="fas fa-phone mr-2"></i> +020.098.456 11</p>
+                            </div>
+                            <div class="pb-[30px]">
+                                <h4 class="text-[20px] font-[500] leading-[1.5] mb-[16px] text-primary">Our address</h4>
+                                <p><i class="fas fa-map-marker-alt mr-2"></i> 28 Valencia Street, New York, United
+                                    States</p>
+                            </div>
+                        </div>
+
+                        <!-- Cột phải -->
+                        <div class="col-span-2 bg-cover bg-no-repeat bg-center relative"
+                            style="background-image: url(https://demo.bravisthemes.com/gurus/wp-content/uploads/2024/03/bg-footer.jpg);"
+                            data-aos="fade-left">
+                            <div class="overlay-footer"></div>
+                            <div
+                                class="relative pt-10 pr-6 pb-10 pl-6 lg:pt-[135px] lg:pr-[15px] lg:pb-[78px] lg:pl-[79px]">
+                                <section>
+                                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                                        <!-- Newsletter -->
+                                        <div class="md:col-span-2" data-aos="fade-up" data-aos-delay="100">
+                                            <div class="md:pl-[30px] lg:pl-[89px]">
+                                                <h4
+                                                    class="text-[22px] lg:text-[25px] font-[500] leading-[1.5] mb-[16px] text-primary">
+                                                    Subscribe To Newsletter</h4>
+                                                <p class="text-sm lg:text-base">Stay up-to-date with the latest trends
+                                                    in digital marketing and receive exclusive tips and insights by
+                                                    subscribing to our newsletter.</p>
+                                                <div class="form border-b relative mt-6 lg:mt-[79px]">
+                                                    <input type="text"
+                                                        class="w-full border-none outline-none bg-transparent pt-[10px] pb-[17px]"
+                                                        placeholder="Your Email" />
+                                                    <button
+                                                        class="absolute right-0 top-0 px-[15px] py-[10px] rounded-full bg-[#223035] text-white text-sm">
+                                                        Subscribe <i class="ml-2 fas fa-arrow-right"></i>
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <!-- Services -->
+                                        <div data-aos="fade-up" data-aos-delay="200">
+                                            <h4
+                                                class="text-[22px] lg:text-[25px] font-[500] leading-[1.5] mb-[16px] text-primary">
+                                                Services</h4>
+                                            <ul class="list-none text-sm lg:text-base">
+                                                <li class="mb-[10px]"><a href="#">Web Design</a></li>
+                                                <li class="mb-[10px]"><a href="#">Web Development</a></li>
+                                                <li class="mb-[10px]"><a href="#">Digital Marketing</a></li>
+                                                <li><a href="#">SEO Services</a></li>
+                                            </ul>
+                                        </div>
+
+                                        <!-- Support -->
+                                        <div data-aos="fade-up" data-aos-delay="300">
+                                            <h4
+                                                class="text-[22px] lg:text-[25px] font-[500] leading-[1.5] mb-[16px] text-primary">
+                                                Support</h4>
+                                            <ul class="list-none text-sm lg:text-base">
+                                                <li class="mb-[10px]"><a href="#">Help Center</a></li>
+                                                <li class="mb-[10px]"><a href="#">Privacy Policy</a></li>
+                                                <li><a href="#">Terms of Service</a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </section>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Footer bottom -->
+                <section class="bg-[#223035]">
+                    <div
+                        class="flex flex-col lg:flex-row items-center justify-between gap-4 py-4 px-6 lg:px-[79px] text-white">
+                        <div class="flex gap-4 text-xl text-primary">
+                            <a href="#" aria-label="Facebook" class="hover:text-blue-600"><i
+                                    class="fab fa-facebook-f"></i></a>
+                            <a href="#" aria-label="Twitter" class="hover:text-blue-400"><i
+                                    class="fab fa-twitter"></i></a>
+                            <a href="#" aria-label="Instagram" class="hover:text-pink-500"><i
+                                    class="fab fa-instagram"></i></a>
+                            <a href="#" aria-label="LinkedIn" class="hover:text-blue-700"><i
+                                    class="fab fa-linkedin-in"></i></a>
+                            <a href="#" aria-label="YouTube" class="hover:text-red-600"><i
+                                    class="fab fa-youtube"></i></a>
+                            <a href="#" aria-label="TikTok" class="hover:text-black"><i class="fab fa-tiktok"></i></a>
+                        </div>
+                        <div class="text-sm text-center lg:text-left">© Copyright@ NCP. All rights reserved</div>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </footer>
+    <!-- AOS JS -->
+    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+    <!-- Swiper JS -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+    <script>
+        AOS.init({
+            duration: 800, // tốc độ (ms)
+            once: true     // chỉ animate 1 lần khi scroll tới
+        });
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/progressbar.js@1.1.0/dist/progressbar.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/countup.js@2.6.2/dist/countUp.umd.js"></script>
+    <script>
+        let animated = false;
+        function animateSkills() {
+            if (animated) return;
+            animated = true;
+
+            const circles = [
+                { id: 'circle1', target: 65, countId: 'count1' },
+                { id: 'circle2', target: 82, countId: 'count2' },
+                { id: 'circle3', target: 96, countId: 'count3' }
+            ];
+
+            circles.forEach(({ id, target, countId }) => {
+                const bar = new ProgressBar.Circle(`#${id}`, {
+                    strokeWidth: 6,
+                    color: '#6ca5b1',
+                    trailColor: '#e6f5f5',
+                    trailWidth: 6,
+                    easing: 'easeInOut',
+                    duration: 1400,
+                    text: { autoStyleContainer: false },
+                    from: { color: '#6ca5b1' },
+                    to: { color: '#6ca5b1' },
+                    step: function (state, circle) {
+                        circle.path.setAttribute('stroke', state.color);
+                    }
+                });
+                bar.animate(target / 100);
+
+                const counter = new countUp.CountUp(countId, target, {
+                    suffix: '%',
+                    duration: 1.5,
+                });
+                counter.start();
+            });
+        }
+
+        // Trigger when scroll into view
+        window.addEventListener('scroll', () => {
+            const section = document.querySelector('#circle1');
+            const rect = section.getBoundingClientRect();
+            if (rect.top <= window.innerHeight * 0.8) {
+                animateSkills();
+            }
+        });
+    </script>
+    <script>
+        const swiper = new Swiper('.partner-slider', {
+            loop: true,
+            autoplay: {
+                delay: 2500,
+                disableOnInteraction: false,
+            },
+            slidesPerView: 2,
+            spaceBetween: 0,
+            breakpoints: {
+                640: { slidesPerView: 3 },
+                768: { slidesPerView: 4 },
+                1024: { slidesPerView: 5 },
+                1280: { slidesPerView: 6 },
+            },
+        });
+
+        const testimonialSwiper = new Swiper(".testimonial-slider", {
+            slidesPerView: 3,
+            spaceBetween: 30,
+            effect: "coverflow",
+            grabCursor: true,
+            centeredSlides: true,
+            slidesPerView: "auto",
+            coverflowEffect: {
+                rotate: 50,
+                stretch: 0,
+                depth: 100,
+                modifier: 1,
+                slideShadows: true,
+            },
+            navigation: {
+                nextEl: ".swiper-button-next-custom",
+                prevEl: ".swiper-button-prev-custom",
+            },
+            loop: true,
+        });
+    </script>
+    <script>
+        let countersStarted = false;
+
+        function startCounters() {
+            if (countersStarted) return;
+            countersStarted = true;
+
+            const counters = [
+                { id: 'counter1', value: 20000, suffix: 'K', duration: 2 },
+                { id: 'counter2', value: 35, suffix: '+', duration: 2 },
+                { id: 'counter3', value: 250, suffix: '', duration: 2 },
+                { id: 'counter4', value: 100, suffix: '%', duration: 2 },
+            ];
+
+            counters.forEach(counter => {
+                const el = document.getElementById(counter.id);
+                const counterInstance = new countUp.CountUp(el, counter.value, {
+                    duration: counter.duration,
+                    suffix: counter.suffix
+                });
+                if (!counterInstance.error) {
+                    counterInstance.start();
+                }
+            });
+        }
+
+        // Trigger on scroll
+        window.addEventListener('scroll', () => {
+            const target = document.getElementById('counter1');
+            if (target && !countersStarted) {
+                const rect = target.getBoundingClientRect();
+                if (rect.top <= window.innerHeight * 0.9) {
+                    startCounters();
+                }
+            }
+        });
+    </script>
+    <script>
+        const swiper2 = new Swiper('.serviceSwiper', {
+            slidesPerView: 1,
+            spaceBetween: 20,
+            loop: true,
+            navigation: {
+                nextEl: '.swiper-button-next-custom',
+                prevEl: '.swiper-button-prev-custom',
+            },
+            breakpoints: {
+                768: { slidesPerView: 2 },
+                1024: { slidesPerView: 3 }
+            }
+        });
+    </script>
+
+    <script>
+        const heroSwiper = new Swiper('.hero-swiper', {
+            loop: true,
+            effect: 'fade', // fade transition
+            autoplay: {
+                delay: 6000,
+                disableOnInteraction: false,
+            },
+            pagination: {
+                el: '.swiper-pagination',
+                clickable: true,
+            },
+            navigation: {
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev',
+            },
+
+        });
+    </script>
+
+    <script>
+        const menuBtn = document.getElementById("menuBtn");
+        const drawer = document.getElementById("drawer");
+        const overlay = document.getElementById("overlay");
+        const closeDrawer = document.getElementById("closeDrawer");
+
+        menuBtn.addEventListener("click", () => {
+            drawer.classList.remove("translate-x-full");
+            overlay.classList.remove("hidden");
+        });
+
+        closeDrawer.addEventListener("click", () => {
+            drawer.classList.add("translate-x-full");
+            overlay.classList.add("hidden");
+        });
+
+        overlay.addEventListener("click", () => {
+            drawer.classList.add("translate-x-full");
+            overlay.classList.add("hidden");
+        });
+    </script>
+</body>
+
+</html>
